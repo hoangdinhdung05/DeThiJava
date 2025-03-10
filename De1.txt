@@ -1,0 +1,39 @@
+Câu 3: Tìm và giải thích lỗi sai 
+
+Giải thích:
+-class Msg có constructor không tham số, trong đây có in ra dòng Hello => không sai
+
+-class TestMsg kế thừa lại Msg 
++ Trong TestMsg có constructor TestMsg
++ Nhưng trong constructor này lại có hàm super nó sẽ gọi lại constructor của Msg
+=> sẽ In ra: Hello => Hello Java 
+
+-- Trong Msg có phương thức sayGoodbye
+--Trong TestMsg kế thừa lại phương thức sayGoodbye phương thức này được Override trong Msg
+
+
+class Msg {
+    public Msg() {
+        System.out.println("Hello");
+    }
+    public void sayGoodbye() {
+        System.out.println("Goodbye");
+    }
+}
+class TestMsg extends Msg {
+    public TestMsg() {
+        super();
+        System.out.println("Hello Java");
+    }
+    public void sayGoodbye() {
+        System.out.println("Goodbye Java");
+    }
+}
+public class Demo {
+    public static void main(String args[]) {
+        Msg m1 = new Msg();
+        Msg m2 = new TestMsg();
+        m1.sayGoodbye();
+        m2.sayGoodbye();
+    }
+}
