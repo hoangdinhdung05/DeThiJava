@@ -1,0 +1,47 @@
+HoangDung $ 22/02/2005 $ Thanh Hoa $ Nam $ kinh doanh $ 5 $ 10 $ 2.0
+
+//Câu 3: Đề 3.
+class Msg {
+    public Msg() {
+    }
+    public Msg(String str) {
+        System.out.println("Hello" + str);
+    }
+    public void sayGoodbye() {
+        System.out.println("Goodbye");
+    }
+}
+class TestMsg extends Msg {
+    public TestMsg(String str) {
+        System.out.println("Hello" + str);
+    }
+    public void sayGoodbye() {
+        System.out.println("Goodbye Java");
+    }
+}
+public class Demo {
+    public static void main(String args[]) {
+        Msg m1 = new Msg("Mark");
+        Msg m2 = new TestMsg("Java");
+        m1.sayGoodbye();
+        m2.sayGoodbye();
+    }
+}
+
+
+#Output: 
+HelloMark
+HelloJava
+Goodbye
+Goodbye Java
+
+--Giải thích:
++Trong Msg có contructor có tham số. Khi khởi tạo thì sẽ in ra Hello + "tham số được truyền vào"
++TestMsg thì được kế thừa lại Msg. TestMsg cũng có contructor có tham số.
+Nhưng thi gọi contructor của TestMsg thì đồng thời contructor của Msg cũng được goi
+=> In ra Hello Mark . Sau đó tin tiếp Hello Java (câu này nằm ở TestMsg)
+
+--Trong Msg có phương thức sayGoodbye
+=> Khi gọi thì sẽ in ra
+--TestMsg được overrider lại phương thức sayGoodbye
+=> In ra info trong TestMsg khi gọi phương thức
